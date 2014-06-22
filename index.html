@@ -1,0 +1,34 @@
+<html>
+<head>
+    <title>Добрыня Никитич против Змея Горыныча</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <script src="modules.js"></script>
+    <script src="character.js"></script>
+    <script src="takeDamage.js"></script>
+    <script src="gameLogic.js"></script>
+    <script>
+        modules.require(
+            ['character', 'gameLogic'],
+            function(Character, Game) {
+
+                var player = Character.create('Добрыня Никитич', 5);
+                var enemy = Character.create('Змей Горыныч', 6);
+
+                var config = {
+                    player : player,
+                    enemy : enemy
+                };
+
+                console.info(
+                    'Бой персонажей персонажей %s [%d уровня] и %s [%d уровня]',
+                    player.name, player.lvl, enemy.name, enemy.lvl
+                );
+
+                console.log(Game(config));
+
+            });
+    </script>
+</head>
+<body>
+Бой проходит в Developer Tools консоли
+</body>
