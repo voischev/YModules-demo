@@ -2,6 +2,7 @@ YModules-demo
 =============
 
 Пример работы [YModules](https://github.com/ymaps/modules) на основе простой RPG игры
+
 Лог игры
 
 ```
