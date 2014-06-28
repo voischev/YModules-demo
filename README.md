@@ -2,4 +2,19 @@ YModules-demo
 =============
 
 Пример работы [YModules](https://github.com/ymaps/modules) на основе простой RPG игры
-![Скриншот](https://leto25d.storage.yandex.net/rdisk/839635b703f6d6883859fac31f4f109f/mpfs/rYeMACsWYqs9fTvHlCIQmMPckNsUUR4JJ5zO97Wbp9-GzFdDquTQuLi0O_mA_aKodRDjgO_5yVtOCeqT5JFcow==?uid=0&filename=Снимок%20экрана%202014-06-22%20в%2017.33.37.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&rtoken=7d2f7e7adca1303c10a106b3ea82530f&rtimestamp=53a6e8c6&force_default=no)
+Лог игры
+
+```
+[Log] Бой персонажей Добрыня Никитич [5 уровня] и Змей Горыныч [6 уровня] (index.html, line 22)
+[Log] Персонажу «Змей Горыныч» нанеcли урон в размере 44. Жизней осталось 76 (gameLogic.js, line 14)
+[Log] Персонажу «Добрыня Никитич» нанеcли урон в размере 29. Жизней осталось 71 (gameLogic.js, line 14)
+[Log] Персонажу «Змей Горыныч» нанеcли урон в размере 11. Жизней осталось 65 (gameLogic.js, line 14)
+[Log] Персонажу «Добрыня Никитич» нанеcли урон в размере 14. Жизней осталось 57 (gameLogic.js, line 14)
+[Log] Персонажу «Змей Горыныч» нанеcли урон в размере 11. Жизней осталось 54 (gameLogic.js, line 14)
+[Log] Персонажу «Добрыня Никитич» нанеcли урон в размере 14. Жизней осталось 43 (gameLogic.js, line 14)
+[Log] Персонажу «Змей Горыныч» нанеcли урон в размере 44. Жизней осталось 10 (gameLogic.js, line 14)
+[Log] Персонажу «Добрыня Никитич» нанеcли урон в размере 14. Жизней осталось 29 (gameLogic.js, line 14)
+[Log] Персонажу «Змей Горыныч» нанеcли урон в размере 22. Жизней осталось 0 (gameLogic.js, line 14)
+[Log] Персонажу «Добрыня Никитич» нанеcли урон в размере 14. Жизней осталось 15 (gameLogic.js, line 14)
+[Log] Добрыня Никитич победил. (gameLogic.js, line 22)
+```
