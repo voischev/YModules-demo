@@ -6,12 +6,8 @@
 */
 modules.define(
     'takeDamage',
-    function(provide) {
-        // Получаем значение кубика
-        function rollDice(sides) {
-            return Math.floor(Math.random() * sides) + 1;
-        }
-
+    ['rolldice'],
+    function(provide, rollDice) {
         // Вычисляем колличество сторон кубика в зависимости от уровня
         function calcSides(lvl) {
             return ( lvl > 5 ) ? 4 : 6;
