@@ -6,7 +6,7 @@
  * http://www.opensource.org/licenses/mit-license.php
  * http://www.gnu.org/licenses/gpl.html
  *
- * @version 0.1.0
+ * @version 0.1.2
  */
 
 (function(global) {
@@ -121,6 +121,20 @@ var undef,
                         curOptions[name] = options[name];
                     }
                 }
+            },
+
+            getStat = function() {
+                var res = {},
+                    module;
+
+                for(var name in modulesStorage) {
+                    if(modulesStorage.hasOwnProperty(name)) {
+                        module = modulesStorage[name];
+                        (res[module.decl.state] || (res[module.decl.state] = [])).push(name);
+                    }
+                }
+
+                return res;
             },
 
             onNextTick = function() {
@@ -270,7 +284,8 @@ var undef,
             require    : require,
             getState   : getState,
             isDefined  : isDefined,
-            setOptions : setOptions
+            setOptions : setOptions,
+            getStat    : getStat
         };
     },
 
@@ -400,4 +415,31 @@ else {
     global.modules = create();
 }
 
-})(this);
+})(typeof window !== 'undefined' ? window : global);
+if(typeof module !== 'undefined') {modules = module.exports;}
+function dropRequireCache(requireFunc, filename) {
+    var module = requireFunc.cache[filename];
+    if (module) {
+        if (module.parent) {
+            if (module.parent.children) {
+                var moduleIndex = module.parent.children.indexOf(module);
+                if (moduleIndex !== -1) {
+                    module.parent.children.splice(moduleIndex, 1);
+                }
+            }
+            delete module.parent;
+        }
+        delete module.children;
+        delete requireFunc.cache[filename];
+    }
+};
+dropRequireCache(require, require.resolve("../../blocks/main/main.node.js"));
+require("../../blocks/main/main.node.js")
+dropRequireCache(require, require.resolve("../../blocks/character/character.node.js"));
+require("../../blocks/character/character.node.js")
+dropRequireCache(require, require.resolve("../../blocks/gamelogic/gamelogic.node.js"));
+require("../../blocks/gamelogic/gamelogic.node.js")
+dropRequireCache(require, require.resolve("../../blocks/takedamage/takedamage.node.js"));
+require("../../blocks/takedamage/takedamage.node.js")
+dropRequireCache(require, require.resolve("../../blocks/rolldice/rolldice.node.js"));
+require("../../blocks/rolldice/rolldice.node.js")

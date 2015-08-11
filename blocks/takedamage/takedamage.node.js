@@ -5,7 +5,7 @@
     В расчете участвует результат подбрасывания кубика.
 */
 modules.define(
-    'takeDamage',
+    'takedamage',
     ['rolldice'],
     function(provide, rollDice) {
         // Вычисляем колличество сторон кубика в зависимости от уровня

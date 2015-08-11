@@ -1,6 +1,6 @@
 modules.define(
-    'gameLogic',
-    ['takeDamage'],
+    'gamelogic',
+    ['takedamage'],
     function(provide, takeDamage) {
 
         function logTemplate(name, damage, hp) {
