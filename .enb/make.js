@@ -8,7 +8,7 @@ var techs = {
 
 module.exports = function(config) {
 
-    config.nodes(['dist/*'], function(nodeConfig) {
+    config.nodes(['bundles/*'], function(nodeConfig) {
 
         // Configure Levels
         nodeConfig.addTech([techs.bem.levels, { levels : [
@@ -29,7 +29,7 @@ module.exports = function(config) {
     /**
      * COMMON CONFIG
      */
-    config.nodes(['dist/*'], function(nodeConfig) {
+    config.nodes(['bundles/*'], function(nodeConfig) {
         // Start file
         nodeConfig.addTech([techs.provide, { target : '?.bemdecl.js' }]);
         // Base techs
@@ -40,7 +40,7 @@ module.exports = function(config) {
     });
 
     config.mode('development', function() {
-        config.nodes(['dist/*'], function(nodeConfig) {
+        config.nodes(['bundles/*'], function(nodeConfig) {
             nodeConfig.addTechs([
                 [techs.borschik, { source : '?.js', target : '_?.js', freeze : true, minify : false }]
             ]);
@@ -48,7 +48,7 @@ module.exports = function(config) {
     });
 
     config.mode('production', function() {
-        config.nodes(['dist/*'], function(nodeConfig) {
+        config.nodes(['bundles/*'], function(nodeConfig) {
             nodeConfig.addTechs([
                 [techs.borschik, { source : '?.js', target : '_?.js', freeze : true, minify : true }]
             ]);

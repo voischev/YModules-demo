@@ -3,15 +3,11 @@ modules.define(
     ['takedamage'],
     function(provide, takeDamage) {
 
-        function logTemplate(name, damage, hp) {
-            return 'Персонажу «' + name + '» нанеcли урон в размере ' + damage + '. Жизней осталось ' + hp;
-        }
-
         function printBattleLog(damage, character) {
-            var name = character.name;
-            var newHp = character.hp;
-            var message = logTemplate(name, damage, newHp);
-            console.log(message);
+            console.log(
+                'Персонажу «%s» нанеcли урон в размере %d. Жизней осталось %d',
+                character.name, damage, character.hp
+            );
         }
 
         function printWinner(player, enemy) {
@@ -30,10 +26,8 @@ modules.define(
 
             do {
                 console.warn('Раунд ' + round + ':');
-                var damagePlayerToEnemy = takeDamage(player, enemy);
-                var damageEnemyToPlayer = takeDamage(enemy, player);
-                printBattleLog(damagePlayerToEnemy, enemy);
-                printBattleLog(damageEnemyToPlayer, player);
+                printBattleLog(takeDamage(player, enemy), enemy);
+                printBattleLog(takeDamage(enemy, player), player);
 
                 round++;
             }

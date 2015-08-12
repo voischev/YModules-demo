@@ -2,8 +2,9 @@
   "name": "RPG",
   "version": "0.0.0",
   "description": "RPG Demo",
-  "main": "dist/main/main.js",
+  "main": "bundles/main/main.node.js",
   "scripts": {
+    "start": "enb make -n && node bundles/main/main.node.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,9 +17,7 @@
     "url": "https://github.com/voischev/YModules-demo/issues"
   },
   "homepage": "https://github.com/voischev/YModules-demo#readme",
-  "dependencies": {
-    "ym": "^0.1.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "borschik": "^1.4.1",
     "enb": "^0.17.0",

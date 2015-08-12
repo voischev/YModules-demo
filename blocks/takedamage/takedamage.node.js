@@ -15,14 +15,14 @@ modules.define(
 
         function realDamage(base, sides) {
 
-            var rd = rollDice(sides); // бросаем кубик
+            var rdi = rollDice(sides); // бросаем кубик
             var halfSides = sides / 2; // Половина сторон
             var results;
 
             // Наносим критический урон если выпало самое большое значение кубика
-            if( rd <= halfSides ) { results = parseInt(base / 2); }
-            if( rd > halfSides ) { results = base; }
-            if( rd === sides ) { results = parseInt(base * 2); }
+            if( rdi <= halfSides ) results = parseInt(base / 2);
+            if( rdi > halfSides ) results = base;
+            if( rdi === sides ) results = parseInt(base * 2);
 
             return results;
 
@@ -38,9 +38,10 @@ modules.define(
         }
 
         function takeDamage(from, to) {
-            var bd = calcBaseDamage(from.att, to.def);
-            var s = calcSides(from.lvl);
-            var rd = realDamage(bd, s);
+            var rd = realDamage(
+                calcBaseDamage(from.att, to.def),
+                calcSides(from.lvl)
+            );
             // Изменяем колличесво жизней обороняющегося
             to.hp = (to.hp - rd >= 0) ? to.hp - rd : 0;
             return rd;

@@ -24,4 +24,5 @@ modules.define(
                 return lvl * 20;
             }
         });
-    });
+    }
+);
